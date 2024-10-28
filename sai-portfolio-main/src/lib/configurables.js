@@ -129,8 +129,7 @@ export const experiences = [
       "Extensive experience in SQL, and Python for complex dataset analysis, processing and manipulation",
       "Performed and executed the POC successfully to visualise the data fetched from the database, using Python libraries like Plotly, Dash, Pandas, Numpy",
       "Collect and wrangle data from various sources, clean and prepare data, perform data analysis using statistical methods and visualization tools",
-      "Developed and maintained Python scripts for ETL processes, handling large-scale  data transformation for the data platform, improving data processing efficiency"
-      
+      "Developed and maintained Python scripts for ETL processes, handling large-scale  data transformation for the data platform, improving data processing efficiency",
     ],
   },
 ];
