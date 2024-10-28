@@ -128,8 +128,8 @@ export const experiences = [
       "Resolved over 200+ data quality, reconciliation, and root cause issues in Production and UAT environments, ensuring data delivery.",
       "Developed data analysis techniques to extract valuable insights and trends from multi-dimensional product datasets, informing product development strategies",
       "Provided data-driven insights and recommendations to support strategic business decisions, enhancing operational efficiency and profitability",
-      "Fostered strong collaboration with cross-functional teams, effectively interpret data insights and resolving complex data-related issues",
-      "Attained a commendable score of 72% on the 98-381 certification exam, showcasing a strong grasp of Python programming fundamentals and the ability to develop.",
+      "Fostered strong collaboration with cross-functional teams, effectively interpret data insights and resolving complex data-related issues"
+      
     ],
   },
 ];
