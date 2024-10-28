@@ -125,10 +125,11 @@ export const experiences = [
     startDate: new Date(2021, 10),
     currentlyWorkHere: true,
     summary: [
-      "Resolved over 200+ data quality, reconciliation, and root cause issues in Production and UAT environments, ensuring data delivery.",
-      "Developed data analysis techniques to extract valuable insights and trends from multi-dimensional product datasets, informing product development strategies",
-      "Provided data-driven insights and recommendations to support strategic business decisions, enhancing operational efficiency and profitability",
-      "Fostered strong collaboration with cross-functional teams, effectively interpret data insights and resolving complex data-related issues"
+      "Performed data analysis by writing optimised SQL queries, reducing data analysis time by 40% and providing valuable business insights to stakeholders",
+      "Extensive experience in SQL, and Python for complex dataset analysis, processing and manipulation",
+      "Performed and executed the POC successfully to visualise the data fetched from the database, using Python libraries like Plotly, Dash, Pandas, Numpy",
+      "Collect and wrangle data from various sources, clean and prepare data, perform data analysis using statistical methods and visualization tools",
+      "Developed and maintained Python scripts for ETL processes, handling large-scale  data transformation for the data platform, improving data processing efficiency"
       
     ],
   },
