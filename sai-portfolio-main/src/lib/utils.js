@@ -76,22 +76,10 @@ export const setDefaultTheme = () => {
   }
 }
 
-// export function formatDate(isoDateString) {
-//   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-//   const date = new Date(isoDateString);
-//   return date.toLocaleDateString(undefined, options);
-// }
-
-
-export function formatDate(date) {
+export function formatDate(isoDateString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  
-  // Handle both Date objects and ISO date strings
-  const dateToFormat = date instanceof Date 
-    ? date 
-    : new Date(date);
-  
-  return dateToFormat.toLocaleDateString(undefined, options);
+  const date = new Date(isoDateString);
+  return date.toLocaleDateString(undefined, options);
 }
 
 export const logUser = () => {
