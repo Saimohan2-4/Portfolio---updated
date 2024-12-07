@@ -81,7 +81,11 @@ export function formatDate(isoDateString) {
   const date = new Date(isoDateString);
   return date.toLocaleDateString(undefined, options);
 }
-
+export function formatDate(isoDateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(isoDateString);
+  return date.toLocaleDateString(undefined, options);
+}
 export const logUser = () => {
   axios.get('https://api.ipify.org?format=json')
   .then(response =>{
