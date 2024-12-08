@@ -123,7 +123,8 @@ export const experiences = [
     logoAlt: "Infosys logo",
     position: "Data Analyst",
     startDate: new Date(2021, 6),
-    currentlyWorkHere: new date(2024, 12),
+    endDate: new Date(2024, 0),
+    currentlyWorkHere: false,
     summary: [
       "Performed data analysis by writing optimised SQL queries, reducing data analysis time by 40% and providing valuable business insights to stakeholders",
       "Extensive experience in SQL, and Python for complex dataset analysis, processing and manipulation",
