@@ -1,7 +1,7 @@
 import Button from "./button";
 const DownloadCV = () => {
     const handleDownloadClick = () => {
-        fetch('Saimohan S_DA__.pdf').then(res => {
+        fetch('Saimohan_S_DataAnalyst.pdf').then(res => {
             res.blob().then(blob => {
                 const url = window.URL.createObjectURL(blob)
                 const link = document.createElement('a');
