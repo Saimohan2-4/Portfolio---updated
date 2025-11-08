@@ -17,6 +17,7 @@ import LogoExcel from "./icon-excel.png";
 import LogoVsc from './icon-visual-studio-code.svg'
 
 import LogoInfosys from './logo-infosys.png';
+import LogoKissflow from './logo-kissflow.svg';
 
 export {
     LogoPython,
@@ -36,5 +37,6 @@ export {
     LogoVsc,
 
     LogoInfosys,
+    LogoKissflow,
 
 }

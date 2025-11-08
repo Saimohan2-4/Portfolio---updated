@@ -16,6 +16,7 @@ import {
   LogoAnaconda,
   LogoExcel,
   LogoInfosys,
+  LogoKissflow,
 } from "../assets/logos";
 
 export const server = import.meta.env.VITE_SERVER_URL;
@@ -39,98 +40,138 @@ export const NavbarLinks = [
   },
 ];
 
-export const skills = [
-  {
-    label: "Python",
-    logo: LogoPython,
-    url: "https://www.python.org/",
-  },
-  {
-    label: "Pandas",
-    logo: LogoPandas,
-    url: "https://pandas.pydata.org/",
-  },
-  {
-    label: "Matplotlib",
-    logo: LogoMatPlotLib,
-    url: "https://matplotlib.org/",
-  },
-  {
-    label: "Plotly",
-    logo: LogoPlotly,
-    url: "https://plotly.com/",
-  },
-  {
-    label: "IPython",
-    logo: LogoIpython,
-    url: "https://ipython.org/",
-  },
-  {
-    label: "NumPy",
-    logo: LogoNumpy,
-    url: "https://numpy.org/",
-  },
-  {
-    label: "PySpark",
-    logo: LogoPySpark,
-    url: "https://spark.apache.org/docs/latest/api/python/index.html",
-  },
-  {
-    label: "Hue",
-    logo: LogoHue,
-    url: "https://gethue.com/",
-  },
-  {
-    label: "Jira",
-    logo: LogoJira,
-    url: "https://www.atlassian.com/software/jira",
-  },
-  {
-    label: "SQL",
-    logo: LogoSQL,
-    url: "https://www.mysql.com/",
-  },
-  {
-    label: "DB Visualizer",
-    logo: LogoDBVisualizer,
-    url: "https://www.dbvis.com/",
-  },
-  {
-    label: "Jupyter Notebook",
-    logo: LogoJupyter,
-    url: "https://jupyter.org/",
-  },
-  {
-    label: "Anaconda",
-    logo: LogoAnaconda,
-    url: "https://www.anaconda.com/",
-  },
-  {
-    label: "Excel",
-    logo: LogoExcel,
-    url: "https://www.microsoft.com/en-us/excel/",
-  },
-  {
-    label: "Visual Studio Code",
-    logo: LogoVsc,
-    url: "https://code.visualstudio.com/",
-  },
+export const skills = {
+  usingNow: [
+    {
+      label: "Python",
+      logo: LogoPython,
+      url: "https://www.python.org/",
+    },
+    {
+      label: "SQL",
+      logo: LogoSQL,
+      url: "https://www.mysql.com/",
+    },
+    {
+      label: "Pandas",
+      logo: LogoPandas,
+      url: "https://pandas.pydata.org/",
+    },
+    {
+      label: "NumPy",
+      logo: LogoNumpy,
+      url: "https://numpy.org/",
+    },
+    {
+      label: "Tableau",
+      logo: "https://cdn.worldvectorlogo.com/logos/tableau-software.svg",
+      url: "https://www.tableau.com/",
+    },
+    {
+      label: "Power BI",
+      logo: "https://powerbi.microsoft.com/pictures/application-logos/svg/powerbi.svg",
+      url: "https://powerbi.microsoft.com/",
+    },
+    {
+      label: "AWS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      url: "https://aws.amazon.com/",
+    },
+    {
+      label: "Azure",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original-wordmark.svg",
+      url: "https://azure.microsoft.com/",
+    },
+    {
+      label: "Excel",
+      logo: LogoExcel,
+      url: "https://www.microsoft.com/en-us/excel/",
+    },
+  ],
+  learning: [
+    {
+      label: "PySpark",
+      logo: LogoPySpark,
+      url: "https://spark.apache.org/docs/latest/api/python/index.html",
+    },
+    {
+      label: "MySQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+      url: "https://www.mysql.com/",
+    },
+    {
+      label: "Oracle",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
+      url: "https://www.oracle.com/",
+    },
+    {
+      label: "Hadoop",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original-wordmark.svg",
+      url: "https://hadoop.apache.org/",
+    },
+  ],
+  otherSkills: [
+    {
+      label: "Matplotlib",
+      logo: LogoMatPlotLib,
+      url: "https://matplotlib.org/",
+    },
+    {
+      label: "Plotly",
+      logo: LogoPlotly,
+      url: "https://plotly.com/",
+    },
+    {
+      label: "Jupyter",
+      logo: LogoJupyter,
+      url: "https://jupyter.org/",
+    },
+    {
+      label: "VSCode",
+      logo: LogoVsc,
+      url: "https://code.visualstudio.com/",
+    },
+  ],
+};
+
+// Keep flat array for backward compatibility
+export const allSkills = [
+  ...skills.usingNow,
+  ...skills.learning,
+  ...skills.otherSkills,
 ];
 
 export const experiences = [
   {
+    logo: LogoKissflow,
+    logoAlt: "Kissflow logo",
+    position: "Associate Solutions Consultant (Professional Services team)",
+    startDate: new Date(2025, 2), // March 2025
+    endDate: null,
+    currentlyWorkHere: true,
+    summary: [
+      "Partnered with enterprise clients to develop customized data solutions, leading discovery workshops and accelerating speed to insight on key business questions",
+      "Automated synchronization of 4,000+ S3-based attachments with Kissflow data via Python API integration, enabling optimized batch processing and metadata classification",
+      "Architected and deployed scalable data processing solutions using AWS (Lambda, S3, CloudWatch) to automate data ingestion and storage, enhancing system reliability",
+      "Developed and managed data pipelines using Azure Data Factory (ADF) to integrate enterprise data from client's diverse Azure sources into the core platform",
+      "Collaborated with operations teams to deliver dashboard insights, achieving 15% reduction in procurement cycle time and improved supplier performance",
+      "Built operational efficiency dashboards in Tableau tracking Purchase Order Cycle Time and Supplier KPIs",
+    ],
+  },
+  {
     logo: LogoInfosys,
     logoAlt: "Infosys logo",
-    position: "Data Analyst",
-    startDate: new Date(2021, 6),
-    endDate: new Date(2024, 0),
+    position: "Systems Engineer (Data Quality and Analytics team)",
+    startDate: new Date(2021, 5), // June 2021
+    endDate: new Date(2025, 0), // January 2025
     currentlyWorkHere: false,
     summary: [
-      "Performed data analysis by writing optimised SQL queries, reducing data analysis time by 40% and providing valuable business insights to stakeholders",
-      "Extensive experience in SQL, and Python for complex dataset analysis, processing and manipulation",
-      "Performed and executed the POC successfully to visualise the data fetched from the database, using Python libraries like Plotly, Dash, Pandas, Numpy",
-      "Collect and wrangle data from various sources, clean and prepare data, perform data analysis using statistical methods and visualization tools",
-      "Developed and maintained Python scripts for ETL processes, handling large-scale  data transformation for the data platform, improving data processing efficiency",
+      "Delivered actionable insights from a 200M+ record data warehouse; supported a strategic modernization by building and testing ETL prototypes using Azure Databricks and PySpark",
+      "Implemented statistical validation frameworks using hypothesis testing, improving data accuracy by 25% across production environments",
+      "Leveraged Python (Pandas, NumPy) for statistical analysis and predictive modeling, sourcing large datasets from legacy systems and cloud storage like AWS S3",
+      "Developed automated KPI monitoring systems and dashboards adopted as primary tool for weekly compliance reviews",
+      "Resolved 200+ data quality issues through root cause analysis using Hadoop distributed systems (SQL, Python) and validated data integrity during migration to Azure Data Lake Storage (ADLS)",
+      "Engineered Financial Compliance dashboard in Tableau providing senior management consolidated view of Contracts and Loans KPIs",
     ],
   },
 ];
@@ -153,41 +194,32 @@ export const socialLinks = [
 
 export const myProjects = [
   {
-    name: "Unveiling Insights in Retail Sales Data",
+    name: "E-Commerce Customer Analysis and Segmentation",
     description:
-      "Exploring a vast retail sales dataset comprising 10k+ records unveils trends, product performance, product dynamics, and optimization opportunities for sales management.",
-    url: "https://sales-analysis-sai.vercel.app/",
-    previewImage: "/sales-analysis-preview.jpg",
-    technologies: [
-      "NextJs",
-      "Typescript",
-      "Tailwindcss",
-      "shadcn/ui",
-      "tRPC",
-      "Prisma",
-      "PostgreSQL",
-      "Python (AI Script)",
-      "Hugging face",
-      "Whisper Jax",
-    ],
-  },
-  {
-    name: "Customer Segmentation Analysis",
-    description:
-      "A data-driven analysis that categorises e-commerce customers based on their buying behaviour, demographics, and engagement patterns to enhance marketing strategies.",
+      "Developed customer behavior analysis and segmentation model using statistical techniques and machine learning algorithms. Created interactive Tableau dashboard visualizing customer segments, purchasing patterns, and lifetime value metrics.",
     url: "https://pouncing-mat-b02.notion.site/Customer-Segmentation-Analysis-1236cd4fdd4880b4928ce11af68ec3a2",
     previewImage: "/customer-segmentation-analysis-preview.gif",
     technologies: [
-      "NextJs",
-      "Typescript",
-      "Tailwindcss",
-      "shadcn/ui",
-      "tRPC",
-      "Prisma",
-      "PostgreSQL",
-      "Python (AI Script)",
-      "Hugging face",
-      "Whisper Jax",
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Tableau",
+      "Machine Learning",
+      "Statistical Analysis",
+    ],
+  },
+  {
+    name: "Supermarket Sales Analysis",
+    description:
+      "Analyzed 10K+ transactions using Python, performing data cleaning and identifying purchasing patterns and regional trends. Developed predictive models for inventory management and regional product placement optimization.",
+    url: "https://sales-analysis-sai.vercel.app/",
+    previewImage: "/sales-analysis-preview.jpg",
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Data Visualization",
+      "Predictive Modeling",
     ],
   },
 ];

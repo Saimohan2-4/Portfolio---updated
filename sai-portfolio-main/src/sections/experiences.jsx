@@ -4,18 +4,22 @@ import { experiences } from "../lib/configurables"
 
 const ExperienceSection = () => {
   return (
-    <>
-      <div className="flex flex-col items-center gap-4">
+    <section className="bg-black py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Section Header Button */}
+        <div className="flex justify-center mb-12">
+          <button className="px-8 py-3 border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-colors">
+            MY EXPERIENCES
+          </button>
+        </div>
 
-        <Typography variant="subtitle" className="max-w-xl text-center font-extralight opacity-70">
-          {`< Here, you can know me a little more and see my whole experience as a Data Analyst. />`}
-        </Typography>
+        <div className="space-y-8">
+          {experiences?.map((experience, index) => (
+            <ExperienceDetails {...experience} key={index} />
+          ))}
+        </div>
       </div>
-
-      {experiences?.map((experience, index) => (
-        <ExperienceDetails {...experience} key={index} />
-      ))}
-    </>
+    </section>
   )
 }
 

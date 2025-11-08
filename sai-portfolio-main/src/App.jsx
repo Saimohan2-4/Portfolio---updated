@@ -17,7 +17,7 @@ const App = () => {
   }, [])
   const theme = useSelector((state) => state.theme.theme)
   return (
-    <div className={mergeClasses("bg-[#0C0C0D]", theme)}>
+    <div className={mergeClasses("bg-white dark:bg-gray-900 min-h-screen", theme)}>
       <Analytics />
       <Header />
       <Routes>

@@ -4,6 +4,7 @@ import ExperienceSection from '../sections/experiences'
 import HeroSection from '../sections/hero'
 import SkillsSection from '../sections/skills'
 import WorkSection from '../sections/work'
+import Footer from '../sections/footer'
 // import TestimonialsSection from '../sections/testimonials'
 
 export const sections = [
@@ -41,5 +42,10 @@ export const sections = [
         title: 'Contact',
         id: 'contact',
         component: ContactSection
+    },
+    {
+        title: 'Footer',
+        id: 'footer',
+        component: Footer
     },
 ]

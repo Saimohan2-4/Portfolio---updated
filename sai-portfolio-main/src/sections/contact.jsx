@@ -1,88 +1,114 @@
 import { useState } from "react";
-import IconButton from "../components/general/icon-button"
 import Typography from "../components/general/typography"
-import useWindowSize from "../hooks/useWindowSize";
-import { copyTextToClipboard, mergeClasses } from "../lib/utils";
-import { Copy, Mail, Phone } from "lucide-react";
 import { email, phone } from "../lib/configurables";
-import { useSelector } from "react-redux";
-import SocialIcons from "../components/data-renderers/social-icons";
 
 const ContactSection = () => {
-  const { width } = useWindowSize();
-  const theme = useSelector((state) => state.theme.theme);
-  const [isCopied, setIsCopied] = useState(false);
-  const [copiedValueType, setCopiedValueType] = useState(
-    null
-  );
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
 
-  const handleCopyClick = async (text, type) => {
-    try {
-      await copyTextToClipboard(text);
-      setIsCopied(true);
-      setCopiedValueType(type);
-      let timoutId = setTimeout(() => {
-        setIsCopied(false);
-        setCopiedValueType(null);
-        clearTimeout(timoutId);
-      }, 1500);
-    } catch (error) {
-      setIsCopied(false);
-      setCopiedValueType(null);
-      alert('Unable to copy!');
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    alert('Thank you for your message! I will get back to you soon.');
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
-  return (
-    <>
-      <div className="flex flex-col items-center gap-4">
-        <Typography variant="subtitle" className="max-w-xl text-center font-extralight opacity-70">
-          What’s next? Feel free to reach out to me if you are looking for a
-          developer, have a query, or simply want to connect.
-        </Typography>
-      </div>
 
-      <div className="flex flex-col items-center gap-6 md:gap-12">
-        <div className="flex flex-col items-center md:gap-4">
-          <div className="flex items-center gap-4 md:gap-5">
-            <Mail className={mergeClasses("h-6 w-6 md:h-8 md:w-8", theme === 'dark' ? 'stroke-white' : 'stroke-black')} />
-            {/* <Link href={`mailto:${email}`}> */}
-            <Typography variant="h2">{email}</Typography>
-            {/* </Link> */}
-            <IconButton aria-label={"copy-email"}
-              role="button"
-              id={"copy-email"}
-              size={width && width < 768 ? 'md' : 'lg'}
-              onClick={() => handleCopyClick(email, 'email')}
-              showTooltip={isCopied && copiedValueType === 'email'}
-              tooltipText="Copied!"
-            >
-              <Copy />
-            </IconButton>
-          </div>
-          <div className="flex items-center gap-4 md:gap-5">
-            <Phone className={mergeClasses("h-6 w-6 md:h-8 md:w-8", theme === 'dark' ? 'stroke-white' : 'stroke-black')} />
-            <Typography variant="h2">{phone}</Typography>
-            <IconButton
-              aria-label={"copy-phone"}
-              role="button"
-              id={"copy-phone"}
-              size={width && width < 768 ? 'md' : 'lg'}
-              onClick={() => handleCopyClick(phone.replace(' ', ''), 'phone')}
-              showTooltip={isCopied && copiedValueType === 'phone'}
-              tooltipText="Copied!"
-            >
-              <Copy />
-            </IconButton>
-          </div>
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <section className="bg-white dark:bg-gray-100 py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Section Header Button */}
+        <div className="flex justify-center mb-12">
+          <button className="px-8 py-3 border-2 border-black text-black font-bold text-lg hover:bg-black hover:text-white transition-colors">
+            CONTACT
+          </button>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <Typography className="text-center">
-            You may also find me on these platforms!
+
+        {/* Description */}
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <Typography className="text-gray-700 text-lg leading-relaxed">
+            What's next? Feel free to reach out to me if you are looking for a data analyst, have a query, or simply want to connect.
           </Typography>
-          <SocialIcons uniqueid={2}/>
+        </div>
+
+        {/* Separator */}
+        <div className="flex items-center justify-center mb-12">
+          <div className="flex-1 h-px bg-gray-300"></div>
+          <span className="px-4 text-gray-400">---</span>
+          <div className="flex-1 h-px bg-gray-300"></div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="max-w-2xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="ENTER YOUR NAME"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border border-black bg-transparent text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="ENTER YOUR EMAIL"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border border-black bg-transparent text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
+              />
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="PHONE NUMBER"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-black bg-transparent text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
+              />
+            </div>
+            <div>
+              <textarea
+                name="message"
+                placeholder="YOUR MESSAGE"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                className="w-full px-4 py-3 border border-black bg-transparent text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black resize-none"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="flex-1 h-px bg-gray-300"></div>
+              <button
+                type="submit"
+                className="px-12 py-3 bg-black text-white font-bold hover:white hover:text-black  hover:bg-white transition-colors mx-4"
+              >
+                SUBMIT
+              </button>
+              <div className="flex-1 h-px bg-gray-300"></div>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </section>
   )
 }
 

@@ -25,28 +25,35 @@ const Header = () => {
 
   return (
     <header id="header" className={mergeClasses(
-      'sticky top-0 z-30 max-w-3xl border-b border-transparent pt-6  mx-auto max-md:border-gray-100 transition-colors duration-300',
+      'sticky top-0 z-30 w-full bg-gray-900 dark:white border-b border-gray-200 dark:border-gray-700 transition-colors duration-300',
       theme,
-      // scrolled ? 'bg-gray/25 backdrop-blur-xl md:border-gray-100' : '',
     )}>
-      <div className="mx-auto rounded-full flex w-full bg-[#131315]  items-center justify-around p-4 md:px-8">
-        <div className="hidden items-center gap-6 md:flex">
-          <ul className={"flex list-none items-center gap-6 !text-[#A386E9]"}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+        <Logo />
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex list-none items-center gap-6">
             {
               NavbarLinks.map((link, index) => (
                 <li key={index}>
-                  <CustomLink className="!text-[#A386E9]" to={link.href}
-                    // className={isLinkActive(link.href)?"text-gray-900":""} 
-                    onClick={() => scrollIntoView(link.href)}>{link.label}</CustomLink>
+                  <CustomLink 
+                    className="text-gray-900 dark:text-gray-300 hover:text-white dark:hover:text-black font-medium transition-colors" 
+                    to={link.href}
+                    onClick={() => scrollIntoView(link.href)}
+                  >
+                    {link.label}
+                  </CustomLink>
                 </li>
               ))
             }
           </ul>
-          <div className="h-6 w-0.5 bg-gray-100"></div>
+          <DownloadCV className="text-gray-900 dark:text-gray-300 hover:text-white dark:hover:text-black font-medium transition-colors" />
+          <button 
+            onClick={() => scrollIntoView('contact')}
+            className="px-6 py-2 bg-white dark:bg-black text-black dark:text-white font-medium rounded hover:opacity-90 transition-opacity"
+          >
+            CONTACT ME
+          </button>
         </div>
-          <div className="flex items-center gap-4">
-            <SocialIcons />
-          </div>
         <Drawer className="w-full" open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex md:hidden">
             <IconButton aria-label={"menu-icon-open"}
@@ -55,8 +62,8 @@ const Header = () => {
               <Menu />
             </IconButton>
           </DrawerTrigger>
-          <DrawerContent className={"bg-[#131315] !text-white !w-full"}>
-            <div className="flex items-center justify-between border-b border-gray-100 p-4">
+          <DrawerContent className={"bg-white dark:bg-gray-900 !text-black dark:!text-white !w-full"}>
+            <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 p-4">
               <Logo />
               <DrawerClose asChild>
                 <IconButton aria-label={"menu-icon-close"}
@@ -66,12 +73,12 @@ const Header = () => {
                 </IconButton>
               </DrawerClose>
             </div>
-            <div className="border-b border-gray-100 p-4">
+            <div className="border-b border-gray-200 dark:border-gray-700 p-4">
               <ul className="flex list-none flex-col gap-4">
                 {NavbarLinks.map((link, index) => (
                   <li key={index}>
                     <CustomLink
-                    className="text-white font-extralight opacity-70"
+                      className="text-gray-700 dark:text-gray-300 font-medium"
                       to={link.href}
                       onClick={() => {
                         const timeoutId = setTimeout(() => {
@@ -85,14 +92,21 @@ const Header = () => {
                     </CustomLink>
                   </li>
                 ))}
+                <li>
+                  <DownloadCV className="text-gray-700 dark:text-gray-300 font-medium" />
+                </li>
               </ul>
             </div>
             <div className="flex flex-col gap-4 p-4">
-              <div className="flex items-center justify-between">
-                <Typography>Switch Theme</Typography>
-                <ThemeSwitcher />
-              </div>
-              <DownloadCV />
+              <button 
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollIntoView('contact', true);
+                }}
+                className="w-full px-6 py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded"
+              >
+                CONTACT ME
+              </button>
             </div>
           </DrawerContent>
         </Drawer>
